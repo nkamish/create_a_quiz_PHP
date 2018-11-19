@@ -51,7 +51,10 @@
             top: 10px;
         }
         .notification {
-            background-color: #f1f1ff61;
+            background-image: url('img/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
         }
         .footer {
             color: white;
