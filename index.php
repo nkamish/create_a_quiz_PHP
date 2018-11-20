@@ -16,6 +16,9 @@
         p {
             color: rgb(217, 217, 223);
         }
+        .title.is-4{
+            color: darkgray;
+        }
         /*---------------- Basic styles for website ends here ---------*/
 
         /*---------------- Styles for beings here --------------------*/
@@ -46,19 +49,56 @@
             position: relative;
             top: 10px;
         }
+        .footer {
+            color: white;
+            background-color: #46474c;
+            padding: 3%;
+        }
+        /*--------------- Styles for containers begins here ---------------*/
+
+        /*--------------- Stlyes for button begins here -------------------*/
+        .button.is-primary.is-inverted.is-outlined {
+            background-color: transparent;
+            border-color: #fff;
+            color: crimson;
+            background-color: #331218;
+            width: 200px;
+        }
+        .button.is-primary.is-inverted.is-outlined:hover {
+            background-color: transparent;
+            border-color: #fff;
+            color: grey;
+            background-color: black;
+        }
+        .button.is-primary.is-inverted.is-outlined:active {
+            background-color: transparent;
+            border-color: #fff;
+            color: grey;
+            background-color: black;
+        }
         .notification { /* Backgroung styling for quiz answer options */
             background-image: url('img/background.jpg');
             background-repeat: no-repeat;
             background-size: cover;
+            text-align: center;
         }
-        .footer {
-            color: white;
-            background-color: #46474c;
+        /******** Submit button styles begins here *******/
+        .button.is-large { 
+            color: grey;
+            background-color: #212223;
         }
-        /*--------------- Styles for containers begins here ---------------*/
+        .button.is-large:hover{
+            color: black;
+            background-color: #ffffffb8;
+        }
+        /******* Submit button styles ends here *******/
+
+        /*---------------- Stlyes for button begins here -------------------*/
     </style>
+
 </head>
 <body>
+
 <!------------------------- Structure for hero-image begins here ------------------------->
     <section class="hero is-fullheight">
         <div class="hero-body">
@@ -77,21 +117,21 @@
 <!-------------------------- Structure for quiz begins here ------------------------------>
     <section>
         <div class="main-container">
-            <div class="container">
+            <div class="container ">
                 <div class="notification">
-                    <p class="title is-5">1. Why did Altair lose his rank in the beginning of the first game?</p>
+                    <p class="title is-4">1. Why did Altair lose his rank in the beginning of the first game?</p>
 
                     <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">He lost a battle against a target</a>
-                        <a class="button is-primary is-inverted is-outlined">He wasn't good at sneaking anymore</a>
-                        <a class="button is-primary is-inverted is-outlined">He broke the tenets of the Creed</a>
-                        <a class="button is-primary is-inverted is-outlined">He showed mercy to his target</a>
+                        <a class="button is-primary is-inverted is-outlined">Broke the three tenants</a>
+                        <a class="button is-primary is-inverted is-outlined">He was aggressive</a>
+                        <a class="button is-primary is-inverted is-outlined">He was a coward</a>
+                        <a class="button is-primary is-inverted is-outlined">He killed an innocent</a>
                     </div>
                 </div>
             </div>    
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">2. Who did Ezio have a fist fight with as a young adult?</p>
+                    <p class="title is-4">2. Who did Ezio have a fist fight with as a young adult?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Vieri de' Pazzi</a>
@@ -103,7 +143,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">3. Where was the primary setting of Assassin's Creed Brotherhood?</p>
+                    <p class="title is-4">3. Where was the primary setting of Assassin's Creed Brotherhood?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Rome</a>
@@ -115,7 +155,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">4. Who was the secondary assassin that you play as in Assassin's Creed Revelations?</p>
+                    <p class="title is-4">4. Who was the secondary assassin that you play as in Assassin's Creed Revelations?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Conner Kenway</a>
@@ -127,7 +167,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">5. What region was Achilles Davenport (Conner's mentor) born in?</p>
+                    <p class="title is-4">5. What region was Achilles Davenport (Conner's mentor) born in?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Early American Colonies</a>
@@ -139,7 +179,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">6. Who was NOT a pirate who teamed up with Edward Kenway in Assassin's Creed 4?</p>        
+                    <p class="title is-4">6. Who was NOT a pirate who teamed up with Edward Kenway in Assassin's Creed 4?</p>        
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Calico Jack</a>
@@ -151,7 +191,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">7. Which piece of Eden is featured in Assassin's Creed Unity?</p>
+                    <p class="title is-4">7. Which piece of Eden is featured in Assassin's Creed Unity?</p>
                     
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Apple of Eden</a>
@@ -163,7 +203,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">8. What was the name of the gang that Jacob Frye started in Assassin's Creed Syndicate?</p>
+                    <p class="title is-4">8. What was the name of the gang that Jacob Frye started in Assassin's Creed Syndicate?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">The Rooks</a>
@@ -175,7 +215,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">9. What death shaped Bayek's motives in the early stages of Assassin's Creed Origin?</p>
+                    <p class="title is-4">9. What death shaped Bayek's motives in the early stages of Assassin's Creed Origin?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">His wife's death</a>
@@ -187,7 +227,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">10. In what specific City State does the main protagonist originate from in Assassins Creed Odyssey?</p>
+                    <p class="title is-4">10. In what specific City State does the main protagonist originate from in Assassins Creed Odyssey?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Thebes</a>
@@ -199,7 +239,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                <p class="title is-5">11. Who is the first Templar you play as in the Assassin's Creed series?</p>
+                <p class="title is-4">11. Who is the first Templar you play as in the Assassin's Creed series?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Haytham Kenway</a>
@@ -211,7 +251,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">12. Who is the first person you personally kill in Black Flag?</p>
+                    <p class="title is-4">12. Who is the first person you personally kill in Black Flag?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Duncan Walpole</a>
@@ -223,7 +263,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">13. Who is the final person wounded in Assassin's Creed: Rogue?</p>
+                    <p class="title is-4">13. Who is the final person wounded in Assassin's Creed: Rogue?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Liam O'Brien</a>
@@ -235,7 +275,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">14. Who is the final target in Assassin's Creed: Unity?</p>
+                    <p class="title is-4">14. Who is the final target in Assassin's Creed: Unity?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Thomas Francois-Germain</a>
@@ -247,7 +287,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">15. What is the name of Edward Kenway's ship?</p>
+                    <p class="title is-4">15. What is the name of Edward Kenway's ship?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">The Jackbird</a>
@@ -259,7 +299,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">16. How does Ezio's father die?</p>
+                    <p class="title is-4">16. How does Ezio's father die?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">He is assassinated</a>
@@ -271,7 +311,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">17. In which game does Desmond die?</p>
+                    <p class="title is-4">17. In which game does Desmond die?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Assassin's Creed II</a>
@@ -283,7 +323,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">18. In Assassin's Creed IV: Black Flag, what is the name of the island where the Assassins hide out?</p>
+                    <p class="title is-4">18. In Assassin's Creed IV: Black Flag, what is the name of the island where the Assassins hide out?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Tulum</a>
@@ -295,7 +335,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">19. James Kidd was in disguise in Assassin's Creed IV: Black Flag. What was he really?</p>
+                    <p class="title is-4">19. James Kidd was in disguise in Assassin's Creed IV: Black Flag. What was he really?</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">A Templar</a>
@@ -307,7 +347,7 @@
             </div>
             <div class="container">
                 <div class="notification">
-                    <p class="title is-5">20. Hehehe..... What is the color of Edward Kenway's hair?! -.-</p>
+                    <p class="title is-4">20. Hehehe..... What is the color of Edward Kenway's hair?! -.-</p>
 
                     <div class="buttons are-small">
                         <a class="button is-primary is-inverted is-outlined">Black</a>
@@ -322,7 +362,7 @@
 
     <footer class="footer">
         <div class="content has-text-centered">
-        <a class="button is-large">Large</a>
+        <a class="button is-large">Submit Your Answer</a>
         </div>
     </footer>
 <!----------------------------- Structure for quiz ends here ----------------------------------->
