@@ -39,30 +39,27 @@
         .hero-body > div > h2 {
             color:dimgrey;
         }
-        /*----------------- Styles for ends here ----------------------*/
-        .navbar-brand {
-            font-size: 34px;
-            font-weight: bold;
-        }
+        /*-------------------- Styles for ends here ----------------------*/
 
-        
+        /*----------------- Styles for containers begins here ------------*/
         .main-container {
             position: relative;
             top: 10px;
         }
-        .notification {
+        .notification { /* Backgroung styling for quiz answer options */
             background-image: url('img/background.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-
         }
         .footer {
             color: white;
-            background-color: rgb(2, 70, 41);
+            background-color: #46474c;
         }
+        /*--------------- Styles for containers begins here ---------------*/
     </style>
 </head>
 <body>
+<!------------------------- Structure for hero-image begins here ------------------------->
     <section class="hero is-fullheight">
         <div class="hero-body">
             <div class="container">
@@ -75,6 +72,7 @@
             </div>
         </div>
     </section>
+<!------------------------- Structure for hero-image ends here --------------------------->
 
 <!-------------------------- Structure for quiz begins here ------------------------------>
     <section>
@@ -321,6 +319,12 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+        <a class="button is-large">Large</a>
+        </div>
+    </footer>
 <!----------------------------- Structure for quiz ends here ----------------------------------->
 </body>
 </html>
