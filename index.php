@@ -52,7 +52,8 @@
         .footer {
             color: white;
             background-color: #46474c;
-            padding: 3%;
+            padding: 2%;
+            margin-top: 10px;
         }
         /*--------------- Styles for containers begins here ---------------*/
 
