@@ -10,6 +10,9 @@
 
     <style>
         /*----------------- Basic styles for website begins here -------------*/
+        * {
+            box-sizing: border-box;
+        }
         body {
             background-color: #46474c;
         }
@@ -57,50 +60,100 @@
         }
         /*--------------- Styles for containers begins here ---------------*/
 
-        /*--------------- Stlyes for button begins here -------------------*/
-        .button.is-primary.is-inverted.is-outlined {
-            background-color: transparent;
-            border-color: #fff;
-            color: crimson;
-            background-color: #331218;
-            width: 200px;
-        }
-        .button.is-primary.is-inverted.is-outlined:hover {
-            background-color: transparent;
-            border-color: #fff;
-            color: grey;
-            background-color: black;
-        }
-        .button.is-primary.is-inverted.is-outlined:active {
-            background-color: transparent;
-            border-color: #fff;
-            color: grey;
-            background-color: black;
-        }
         .notification { /* Backgroung styling for quiz answer options */
+            background-color: #46474c;
+            /* background-repeat: no-repeat;
+            background-size: cover; */
+            text-align: center;
+            padding-top: 10px;
+        }
+        .box {
             background-image: url('img/background.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             text-align: center;
         }
-        /******** Submit button styles begins here *******/
-        .button.is-large { 
+        .box > h2 {
+            font-size: 50px;
+            font-weight: normal;
+            color: currentColor;
+        }
+        .box > p {
+            color: rgb(217, 217, 223);
+            padding: 15px;
+            font-size: 25px;
+        }
+        /*----------------- Styles for containers ends here -----------------*/
+
+        /*--------------- Stlyes for button begins here -------------------*/
+        input[type=radio] {
+            opacity: 0;
+            margin: 1.2em 0;
+        }
+        label {
+            border: 1px solid transparent;
+            border-color: #fff;
+            color: crimson;
+            background-color: #331218;
+            border-radius: 3px;
+            padding: 0.5em 1em;
+            width: 1024px;
+            margin: 0;
+        }
+        label:hover {
+            border-color: #fff;
+            color: grey;
+            background-color: black;
+        }
+        input[type=radio]:checked + label {
+            border-color: #fff;
+            color: grey;
+            background-color: black;
+            
+        }
+        .answers { /*-------- grid layout for buttons --------*/
+            display:grid;
+            grid-template-rows:1fr 1fr 1fr 1fr;
+            margin: 0 auto;
+        }
+        .answers div {
+            width: 100%;
+            margin: 0;
+        }
+        /*--------------- Stlyes for button begins here -------------------*/
+        
+        /*-------------- Submit button styles begins here ----------------*/
+        .submit { 
             color: grey;
             background-color: #212223;
+            width: 100%;
         }
-        .button.is-large:hover{
+        .submit:hover{
             color: black;
             background-color: #ffffffb8;
         }
-        /******* Submit button styles ends here *******/
+        button, input, select, textarea {
+            margin: 0;
+            border: 1px solid transparent;
+            border-color: #fff;
+            color: crimson;
+            background-color: #331218;
+            border-radius: 3px;
+            padding: 0.5em 1em;
+            width: 100%;
+            margin: 0;
+        }
+        /*---------------- Submit button styles ends here -----------------*/
 
-        /*---------------- Stlyes for button begins here -------------------*/
+        /*---------------- Stlyes for button ends here -------------------*/
     </style>
 
 </head>
 <body>
 
+
 <!------------------------- Structure for hero-image begins here ------------------------->
+
     <section class="hero is-fullheight">
         <div class="hero-body">
             <div class="container">
@@ -113,259 +166,324 @@
             </div>
         </div>
     </section>
+
 <!------------------------- Structure for hero-image ends here --------------------------->
 
-<!-------------------------- Structure for quiz begins here ------------------------------>
-    <section>
-        <div class="main-container">
-            <div class="container ">
-                <div class="notification">
-                    <p class="title is-4">1. Why did Altair lose his rank in the beginning of the first game?</p>
+<!-------------------------- Structure for quiz answers begins here ------------------------------>
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Broke the three tenants</a>
-                        <a class="button is-primary is-inverted is-outlined">He was aggressive</a>
-                        <a class="button is-primary is-inverted is-outlined">He was a coward</a>
-                        <a class="button is-primary is-inverted is-outlined">He killed an innocent</a>
-                    </div>
-                </div>
-            </div>    
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">2. Who did Ezio have a fist fight with as a young adult?</p>
+<div class="container">
+    <div class="notification">
+        <form action='results.php' method="post">
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Vieri de' Pazzi</a>
-                        <a class="button is-primary is-inverted is-outlined">Giovanni Tornabuoni</a>
-                        <a class="button is-primary is-inverted is-outlined">Leonardo da Vinci</a>
-                        <a class="button is-primary is-inverted is-outlined">Giovanni Audi tore</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">3. Where was the primary setting of Assassin's Creed Brotherhood?</p>
+            <?php
+            $_SESSION['quizPieces'] = $quizPieces = array(
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Rome</a>
-                        <a class="button is-primary is-inverted is-outlined">Italy</a>
-                        <a class="button is-primary is-inverted is-outlined">Greece</a>
-                        <a class="button is-primary is-inverted is-outlined">Florence</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">4. Who was the secondary assassin that you play as in Assassin's Creed Revelations?</p>
+                array(
+                // <!---------------------------------------- Start of Question 1 ------------------------------>
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Conner Kenway</a>
-                        <a class="button is-primary is-inverted is-outlined">Altair ibn-La'Ahad</a>
-                        <a class="button is-primary is-inverted is-outlined">Edward Kenway</a>
-                        <a class="button is-primary is-inverted is-outlined">Jacob Frey</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">5. What region was Achilles Davenport (Conner's mentor) born in?</p>
+                'q' => 'Why did Altair lose his rank in the beginning of the first game?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Early American Colonies</a>
-                        <a class="button is-primary is-inverted is-outlined">The Caribbean</a>
-                        <a class="button is-primary is-inverted is-outlined">England</a>
-                        <a class="button is-primary is-inverted is-outlined">Egypt</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">6. Who was NOT a pirate who teamed up with Edward Kenway in Assassin's Creed 4?</p>        
+                'Broke the three tenants', 
+                'He was aggressive', 
+                'He was a coward', 
+                'He killed an innocent',
+                'none'
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 2 ------------------------------> 
+                
+                'q' => 'Who did Ezio have a fist fight with as a young adult?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Calico Jack</a>
-                        <a class="button is-primary is-inverted is-outlined">Henry Every</a>
-                        <a class="button is-primary is-inverted is-outlined">Bartholowmew Roberts</a>
-                        <a class="button is-primary is-inverted is-outlined">Black Beard</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">7. Which piece of Eden is featured in Assassin's Creed Unity?</p>
+                'Giovanni Tornabuoni', 
+                'Vieri de Pazzi', 
+                'Leonardo da Vinci', 
+                'Giovanni Audi tore',
+                'none'
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 3 ------------------------------>
                     
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Apple of Eden</a>
-                        <a class="button is-primary is-inverted is-outlined">Crystal Skull of Eden</a>
-                        <a class="button is-primary is-inverted is-outlined">Sword of Eden</a>
-                        <a class="button is-primary is-inverted is-outlined">Cloak of Eden</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">8. What was the name of the gang that Jacob Frye started in Assassin's Creed Syndicate?</p>
+                'q' => 'Where was the primary setting of Assassin\'s Creed Brotherhood?', 
+                // ANSWERS
+                
+                'Florence', 
+                'Italy', 
+                'Greece', 
+                'Rome',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">The Rooks</a>
-                        <a class="button is-primary is-inverted is-outlined">The Eagles</a>
-                        <a class="button is-primary is-inverted is-outlined">The Assassins</a>
-                        <a class="button is-primary is-inverted is-outlined">The Templars</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">9. What death shaped Bayek's motives in the early stages of Assassin's Creed Origin?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 4 ------------------------------>
+                    
+                'q' => 'Who was the secondary assassin that you play as in Assassin\'s Creed Revelations?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">His wife's death</a>
-                        <a class="button is-primary is-inverted is-outlined">His son's death</a>
-                        <a class="button is-primary is-inverted is-outlined">His friend's death</a>
-                        <a class="button is-primary is-inverted is-outlined">Becoming an Assassin</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">10. In what specific City State does the main protagonist originate from in Assassins Creed Odyssey?</p>
+                'Jacob Frey', 
+                'Edward Kenway', 
+                'Altair ibn-La\'Ahad', 
+                'Conner Kenway',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Thebes</a>
-                        <a class="button is-primary is-inverted is-outlined">Sparta</a>
-                        <a class="button is-primary is-inverted is-outlined">Athens</a>
-                        <a class="button is-primary is-inverted is-outlined">Greece</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                <p class="title is-4">11. Who is the first Templar you play as in the Assassin's Creed series?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 5 ------------------------------>
+                    
+                'q' => 'What region was Achilles Davenport (Conner\'s mentor) born in?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Haytham Kenway</a>
-                        <a class="button is-primary is-inverted is-outlined">Edward Kenway</a>
-                        <a class="button is-primary is-inverted is-outlined">Rodrigo Borgia</a>
-                        <a class="button is-primary is-inverted is-outlined">Otso Berg</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">12. Who is the first person you personally kill in Black Flag?</p>
+                'Early American Colonies', 
+                'The Caribbean', 
+                'England', 
+                'Egypt',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Duncan Walpole</a>
-                        <a class="button is-primary is-inverted is-outlined">El Tiburon</a>
-                        <a class="button is-primary is-inverted is-outlined">Rodrigo Borgia</a>
-                        <a class="button is-primary is-inverted is-outlined">Shay Cormac</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">13. Who is the final person wounded in Assassin's Creed: Rogue?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 6 ------------------------------>
+                    
+                'q' => 'Who was NOT a pirate who teamed up with Edward Kenway in Assassin\'s Creed 4?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Liam O'Brien</a>
-                        <a class="button is-primary is-inverted is-outlined">Haytham Kenway</a>
-                        <a class="button is-primary is-inverted is-outlined">Achilles Davenport</a>
-                        <a class="button is-primary is-inverted is-outlined">Hope Jensen</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">14. Who is the final target in Assassin's Creed: Unity?</p>
+                'Calico Jack', 
+                'Henry Every', 
+                'Bartholowmew Roberts', 
+                'Black Beard',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Thomas Francois-Germain</a>
-                        <a class="button is-primary is-inverted is-outlined">Arno Dorian</a>
-                        <a class="button is-primary is-inverted is-outlined">Benjamin Hornigold</a>
-                        <a class="button is-primary is-inverted is-outlined">Elise de la Serre</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">15. What is the name of Edward Kenway's ship?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 7 ------------------------------>
+                
+                'q' => 'Which piece of Eden is featured in Assassin\'s Creed Unity?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">The Jackbird</a>
-                        <a class="button is-primary is-inverted is-outlined">The Jackdaw</a>
-                        <a class="button is-primary is-inverted is-outlined">The Black Pearl</a>
-                        <a class="button is-primary is-inverted is-outlined">Her Majesty</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">16. How does Ezio's father die?</p>
+                'Apple of Eden', 
+                'Crystal Skull of Eden', 
+                'Sword of Eden', 
+                'Shroud of Eden',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">He is assassinated</a>
-                        <a class="button is-primary is-inverted is-outlined">Sickness</a>
-                        <a class="button is-primary is-inverted is-outlined">He is hanged</a>
-                        <a class="button is-primary is-inverted is-outlined">He doesn't</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">17. In which game does Desmond die?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 8 ------------------------------>
+                    
+                'q' => 'What was the name of the gang that Jacob Frye started in Assassin\'s Creed Syndicate?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Assassin's Creed II</a>
-                        <a class="button is-primary is-inverted is-outlined">Assassin's Creed: Revelations</a>
-                        <a class="button is-primary is-inverted is-outlined">Assassin's Creed IV: Black Flag</a>
-                        <a class="button is-primary is-inverted is-outlined">Assassin's Creed III</a>
-                    </div> 
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">18. In Assassin's Creed IV: Black Flag, what is the name of the island where the Assassins hide out?</p>
+                'The Rooks', 
+                'The Eagles', 
+                'The Assassins', 
+                'The Templars',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Tulum</a>
-                        <a class="button is-primary is-inverted is-outlined">Nasseau</a>
-                        <a class="button is-primary is-inverted is-outlined">Havana</a>
-                        <a class="button is-primary is-inverted is-outlined">Assassin Island</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">19. James Kidd was in disguise in Assassin's Creed IV: Black Flag. What was he really?</p>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 9 ------------------------------>
+                    
+                'q' => 'What death shaped Bayek\'s motives in the early stages of Assassin\'s Creed Origin?', 
+                // ANSWERS
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">A Templar</a>
-                        <a class="button is-primary is-inverted is-outlined">A woman</a>
-                        <a class="button is-primary is-inverted is-outlined">An old man</a>
-                        <a class="button is-primary is-inverted is-outlined">An old lady</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="notification">
-                    <p class="title is-4">20. Hehehe..... What is the color of Edward Kenway's hair?! -.-</p>
+                'His wife\'s death', 
+                'His son\'s death', 
+                'His friend\'s death', 
+                'Becoming an Assassin',
+                'none'
 
-                    <div class="buttons are-small">
-                        <a class="button is-primary is-inverted is-outlined">Black</a>
-                        <a class="button is-primary is-inverted is-outlined">Blonde</a>
-                        <a class="button is-primary is-inverted is-outlined">Red</a>
-                        <a class="button is-primary is-inverted is-outlined">Brown</a>
-                    </div>
-                </div>
-            </div>
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 10 ------------------------------>
+                    
+                'q' => 'In what specific City State does the main protagonist originate from in Assassins Creed Odyssey?', 
+                // ANSWERS
+
+                'Thebes', 
+                'Sparta', 
+                'Athens', 
+                'Greece',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 11 ------------------------------>
+                    
+                'q' => 'Who is the first Templar you play as in the Assassin\'s Creed series?', 
+                // ANSWERS
+
+                'Haytham Kenway', 
+                'Edward Kenway', 
+                'Rodrigo Borgia', 
+                'Otso Berg',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 12 ------------------------------>
+                    
+                'q' => 'Who is the first person you personally kill in Black Flag?', 
+                // ANSWERS
+
+                'Rodrigo Borgia', 
+                'El Tiburon', 
+                'Duncan Walpole', 
+                'Shay Cormac',
+                'none'
+
+            ),		
+                array(
+                // <!---------------------------------------- Start of Question 13 ------------------------------>
+                    
+                'q' => 'Who is the final person wounded in Assassin\'s Creed: Rogue?', 
+                // ANSWERS
+
+                'Liam O\'Brien', 
+                'Haytham Kenway', 
+                'Achilles Davenport', 
+                'Hope Jensen',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 14 ------------------------------>
+                    
+                'q' => 'Who is the final target in Assassin\'s Creed: Unity?', 
+                // ANSWERS
+
+                'Thomas Francois-Germain', 
+                'Arno Dorian', 
+                'Benjamin Hornigold', 
+                'Elise de la Serre',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 15 ------------------------------>
+                    
+                'q' => 'What is the name of Edward Kenway\'s ship?', 
+                // ANSWERS
+
+                'The Jackbird', 
+                'The Jackdaw', 
+                'The Black Pearl', 
+                'Her Majesty',
+                'none'
+
+            ),
+            array(
+                // <!---------------------------------------- Start of Question 16 ------------------------------>
+                    
+                'q' => 'How does Ezio\'s father die?', 
+                // ANSWERS
+
+                'He is assassinated', 
+                'Sickness', 
+                'He is hanged', 
+                'He doesn\'t',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 17 ------------------------------>
+                    
+                'q' => 'In which game does Desmond die?', 
+                // ANSWERS
+
+                'Assassin\'s Creed II', 
+                'Assassin\'s Creed: Revelations', 
+                'Assassin\'s Creed IV: Black Flag', 
+                'Assassin\'s Creed III',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 18 ------------------------------>
+                    
+                'q' => 'In Assassin\'s Creed IV: Black Flag, what is the name of the island where the Assassins hide out?',
+                // ANSWERS
+
+                'Tulum', 
+                'Nasseau', 
+                'Havana', 
+                'Assassin Island',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 19 ------------------------------>
+                    
+                'q' => 'James Kidd was in disguise in Assassin\'s Creed IV: Black Flag. What was he really?', 
+                // ANSWERS
+
+                'A Templar', 
+                'A woman', 
+                'An assassin', 
+                'A mentor',
+                'none'
+
+            ),
+                array(
+                // <!---------------------------------------- Start of Question 20 ------------------------------>
+                    
+                'q' => 'Hehehe..... What is the color of Edward Kenway\'s hair?! -.-', 
+                // ANSWERS
+
+                'Black', 
+                'Blonde', 
+                'Red', 
+                'Brown',
+                'none'
+
+                )
+                
+            );
+
+        ?>
+        <?php
+            for ($i = 0; $i < count($quizPieces); $i++) { ?>
+
+            <section class='box'>
+                    <h2>
+                        Question <span class="num"> <?php echo $i+1 ?> </span>
+                    </h2>
+                    <p>
+                        <?php echo $quizPieces[$i]['q']; ?>
+                    </p>
+                    <section class='grid'>
+                    <?php 
+                        $x = 0;
+                    for ($n = $i*4; $n < ($i+1)*4; $n++) { 
+
+                        ?>
+                        <input type='radio' name="<?php echo $i; ?>" value="<?php echo $x ?>" id="<?php echo $n ?>"><label class="option" for="<?php echo $n ?>" onclick="play()"><?php echo $quizPieces[$i][$x] ?></label>
+                    <?php
+                            $x++; 
+                
+                } ?>
+                    <input type="radio" name="<?php echo $i; ?>" value="4" checked="checked">
+                    </section>
+                </section>
+
+            <?php }
+        ?>
+	    <!-- </form>   -->
+    </div>
+</div>        
+<!-------------------------- Structure for quiz answers ends here ------------------------------>
+
+<!---------------- Structure for submit button begins here ------------------>
+<!-- <form action='results.php' method="post"> -->
+    <div class="container">
+        <div class="notification">
+            <section class="submit">
+                <input type="submit" value="Submit!">
+            </section>
         </div>
-    </section>
+    </div>
+</form>
+<!---------------- Structure for submit button ends here -------------------->
 
-    <footer class="footer">
-        <div class="content has-text-centered">
-        <a class="button is-large">Submit Your Answer</a>
-        </div>
-    </footer>
-<!----------------------------- Structure for quiz ends here ----------------------------------->
+
 </body>
 </html>
