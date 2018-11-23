@@ -467,13 +467,13 @@
 
             <?php }
         ?>
-	    <!-- </form>   -->
+	    
     </div>
 </div>        
 <!-------------------------- Structure for quiz answers ends here ------------------------------>
 
 <!---------------- Structure for submit button begins here ------------------>
-<!-- <form action='results.php' method="post"> -->
+
     <div class="container">
         <div class="notification">
             <section class="submit">
